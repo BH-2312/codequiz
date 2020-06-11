@@ -1,0 +1,14 @@
+#startquiz{
+width:5cm ;
+height: 5cm;
+color: whitesmoke;
+background-color: violet;
+}
+body{
+	font-size: 20px;
+	font-family: sans-serif;
+	color: #333;
+}
+.time {
+	text-align: right;
+}
