@@ -3,6 +3,8 @@ width:5cm ;
 height: 3cm;
 color: whitesmoke;
 background-color: violet;
+display: inline-block;
+
 }
 body{
 	font-size: 20px;
@@ -10,9 +12,25 @@ body{
 	color: #333;
 }
 .time {
-	text-align: right;
+	text-align: center;
+
 }
 #quizBody{
 visibility: hidden;
 
+}
+#scoreboard{
+	visibility: hidden;
+	text-align: center;
+	
+	}
+h1{
+	text-align: center;
+}
+#firstScreen{
+	text-align: center;
+
+}
+.card{
+	display: inline-block;
 }

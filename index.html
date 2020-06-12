@@ -11,34 +11,49 @@
 </head>
 
 <body>
+    <!-- welcome screen and button-->
     <div id="firstScreen">
         <h1>Welcome to the Code Quiz</h1>
         <button id="startquiz" href=>Start Quiz!</button>
     </div>
-    <div class="time"></div>
+    <!-- main quiz area-->
     <div id="quizBody">
 
         <div class="row">
             <div class="col"> </div>
             <div class="col">
-                <h2> Question <span id=questionNo> 1 </span></h2>
-                <h3 class id = "question">Question goes here</h3>
-                <button type="button" class="btn btn-primary btn-lg btn-block"
-                id = answer1>1</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block" id = answer2>2</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block" id = answer3>3</button>
-                <button type="button" class="btn btn-primary btn-lg btn-block" id = answer4>4</button>
-
+                <!--Quiz question-->
+                <h3 class id="question">Question goes here</h3>
+                <!--Potential quiz answers-->
+                <button type="button" class="btn btn-primary btn-lg btn-block" id=answer1
+                    onclick="checkAnswer(1)">1</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id=answer2
+                    onclick="checkAnswer(2)">2</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id=answer3
+                    onclick="checkAnswer(3)">3</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id=answer4
+                    onclick="checkAnswer(4)">4</button>
+                <!--Was the answer correct?-->
                 <h4 id=yesNo></h4>
 
             </div>
             <div class="col">
+                <!--The timer-->
+                <div class="time"></div>
             </div>
-
+    </div>
+    </div>
+<!--Final score screen-->
+<div id = "scoreboard">
+    <div class="card" style="width: 18rem;">
+        <img src="C:\Users\benhi\OneDrive\Desktop\Coding BootCamp\codequiz\Well-Done.png" class="card-img-top" alt="well done">
+        <div class="card-body">
+          <p class="card-text">Well done you completed the quiz!</p>
         </div>
+      </div>
+</div>
 
-
-        <script src=script.js> </script>
+    <script src=script.js> </script>
 
 </body>
 
