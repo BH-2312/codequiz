@@ -11,14 +11,34 @@
 </head>
 
 <body>
-    <div id= "firstScreen">
+    <div id="firstScreen">
         <h1>Welcome to the Code Quiz</h1>
-        <button id= "startquiz" href=>Start Quiz!</button>
+        <button id="startquiz" href=>Start Quiz!</button>
     </div>
-    <div class = "time"></div>
-    <div id = "quizBody" ></div>
-    
-    <script src=script.js> </script>
+    <div class="time"></div>
+    <div id="quizBody">
+
+        <div class="row">
+            <div class="col"> </div>
+            <div class="col">
+                <h2> Question <span id=questionNo> 1 </span></h2>
+                <h3 class id = "question">Question goes here</h3>
+                <button type="button" class="btn btn-primary btn-lg btn-block"
+                id = answer1>1</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id = answer2>2</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id = answer3>3</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" id = answer4>4</button>
+
+                <h4 id=yesNo></h4>
+
+            </div>
+            <div class="col">
+            </div>
+
+        </div>
+
+
+        <script src=script.js> </script>
 
 </body>
 

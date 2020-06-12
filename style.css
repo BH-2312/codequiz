@@ -1,6 +1,6 @@
 #startquiz{
 width:5cm ;
-height: 5cm;
+height: 3cm;
 color: whitesmoke;
 background-color: violet;
 }
@@ -11,4 +11,8 @@ body{
 }
 .time {
 	text-align: right;
+}
+#quizBody{
+visibility: hidden;
+
 }
