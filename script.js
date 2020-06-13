@@ -15,31 +15,39 @@ var quiz = document.getElementById("quizBody");
 var yesNo = document.getElementById("yesNo");
 var ask = ["What yr was HTML invented", " What does var mean in javascript", "What does CSS stand for?", "What is a stylesheet?"]
 var question = document.getElementById("question");
-var isCorrect = ["Yes that is correct", "No, you got that wrong!"]
+var isCorrect = ["Well done, that last answer was Correct!", "You got that last question wrong!, You lost 10 seconds!"]
 var newQuestion = [
 	{
-		question: "What yr was HTML invented",
-		choice1: "1910",
-		choice2: "1920",
-		choice3: "1930",
-		choice4: "1940",
+		question: "What does HTML stand for?",
+		choice1: "Hypertext Markup Language",
+		choice2: "Hyper Trans Max Language",
+		choice3: "Hot Times My Love",
+		choice4: "Hacked Text Maximum Language",
 		correct: "1",
 	},
 	{
-		question: "What does var mean in javascript",
-		choice1: "John",
-		choice2: "Paul",
-		choice3: "Ringo",
-		choice4: "George",
+		question: "What does 'var' mean in javascript",
+		choice1: "Various",
+		choice2: "Variable",
+		choice3: "Variety",
+		choice4: "Next",
 		correct: "2",
 	},
 	{
-		question: "hello team",
-		choice1: "Wayne",
-		choice2: "Paul",
-		choice3: "Ringo",
-		choice4: "Kim",
+		question: "Which of these is a heading tag in HTML?",
+		choice1: "T1",
+		choice2: "Heading",
+		choice3: "Header",
+		choice4: "H2",
 		correct: "4",
+	},
+	{
+		question: "Which symbol indicates an ID?",
+		choice1: "@",
+		choice2: "*",
+		choice3: "#",
+		choice4: "!",
+		correct: "3",
 	}]
 var lastQuestionIndex = newQuestion.length - 1;
 var runningQuestionIndex = 0;
@@ -60,8 +68,8 @@ startquiz.addEventListener("click", function (event) {
 	//check answer
 	checkAnswer(answer);
 	//run scoreboard
-	scoreboard();
-	
+	score();
+
 
 });
 //ask question 1
@@ -81,16 +89,13 @@ function setTime() {
 
 		if (secondsLeft === 0) {
 			clearInterval(timerInterval);
-			sendMessage();
+			alert("You have run out of time!!!")
+			score();
 		}
-		
 
 	}, 1000);
 }
-//message when time expires
-function sendMessage() {
-	timeEl.textContent = "Time up champion ";
-}
+
 //establish quiz questions
 function quizStart() {
 	quiz.style.visibility = "visible";
@@ -108,27 +113,28 @@ function renderQuestion() {
 function checkAnswer(answer) {
 	if (newQuestion[runningQuestionIndex].correct == answer) {
 		yesNo.innerText = isCorrect[0];
-	}else{ yesNo.innerText = isCorrect[1];
-		timeoff();
+	} else {
+		yesNo.innerText = isCorrect[1];
+		timeOff();
 
 	}
-	if(runningQuestionIndex < lastQuestionIndex) {
+	if (runningQuestionIndex < lastQuestionIndex) {
 		runningQuestionIndex++;
 		renderQuestion();
 
-	} else{
+	} else {
 		score();
-		
+
 	}
 }
 
-function score(){
+function score() {
 	quiz.parentNode.removeChild(quiz);
 	scoreboard.style.visibility = "visible";
 
 }
-function timeoff(){
-	secondsLeft - 10
+function timeOff() {
+	secondsLeft -= 10;
 }
 // ask 1st quiz question
 /* function questionAsker1() {
