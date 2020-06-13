@@ -13,7 +13,7 @@ var answers = document.getElementById("answers");
 var questionNo = document.getElementById("questionNo");
 var quiz = document.getElementById("quizBody");
 var yesNo = document.getElementById("yesNo");
-var ask = ["What yr was HTML invented", " What does var mean in javascript", "What does CSS stand for?", "What is a stylesheet?"]
+//var ask = ["What yr was HTML invented", " What does var mean in javascript", "What does CSS stand for?", "What is a stylesheet?"]
 var question = document.getElementById("question");
 var isCorrect = ["Well done, that last answer was Correct!", "You got that last question wrong!, You lost 10 seconds!"]
 var newQuestion = [
@@ -30,7 +30,7 @@ var newQuestion = [
 		choice1: "Various",
 		choice2: "Variable",
 		choice3: "Variety",
-		choice4: "Next",
+		choice4: "Varicose vein",
 		correct: "2",
 	},
 	{
@@ -52,8 +52,7 @@ var newQuestion = [
 var lastQuestionIndex = newQuestion.length - 1;
 var runningQuestionIndex = 0;
 var scoreboard = document.getElementById("scoreboard");
-
-
+var score1 = document.querySelector("#score");
 
 // start button to begin quiz
 startquiz.addEventListener("click", function (event) {
@@ -68,7 +67,7 @@ startquiz.addEventListener("click", function (event) {
 	//check answer
 	checkAnswer(answer);
 	//run scoreboard
-	score();
+	//score();
 
 
 });
@@ -87,9 +86,8 @@ function setTime() {
 		secondsLeft--;
 		timeEl.textContent = secondsLeft + " seconds left";
 
-		if (secondsLeft === 0) {
+		if (secondsLeft <= 0) {
 			clearInterval(timerInterval);
-			alert("You have run out of time!!!")
 			score();
 		}
 
@@ -109,10 +107,11 @@ function renderQuestion() {
 	answer3.innerHTML = q.choice3;
 	answer4.innerHTML = q.choice4;
 }
-//function to check answer and then progress quiz
+//function to check answer and then progress quiz     //answer as parameter for checkanswer??
 function checkAnswer(answer) {
 	if (newQuestion[runningQuestionIndex].correct == answer) {
 		yesNo.innerText = isCorrect[0];
+
 	} else {
 		yesNo.innerText = isCorrect[1];
 		timeOff();
@@ -124,14 +123,19 @@ function checkAnswer(answer) {
 
 	} else {
 		score();
-
+		clearInterval(timerInterval);
+		
 	}
 }
 
 function score() {
+
 	quiz.parentNode.removeChild(quiz);
 	scoreboard.style.visibility = "visible";
-
+	if (secondsLeft <= 0) { score1.textContent = "0 POINTS" }
+	else {
+		score1.textContent = secondsLeft + " POINTS"
+	}
 }
 function timeOff() {
 	secondsLeft -= 10;
